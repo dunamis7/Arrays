@@ -14,7 +14,7 @@ namespace ArrayMatter
             int[] numbers = new int[20];
             numbers = Initializer(numbers);
 
-            display(numbers);
+            Displays.displayArray(numbers);
             Console.WriteLine(" "); 
 
             int[] abtmin = minNum(numbers);
@@ -35,14 +35,14 @@ namespace ArrayMatter
             List<int> list = new List<int>();
            list = findPrimenumbers(numbers);
 
-            printList(list);
+            Displays.printList(list);
 
             Console.WriteLine(" ");
 
 
             int[] mysort = selectionSort(numbers);
 
-            display(mysort);
+            Displays.displayArray(mysort);
 
             Console.Read();
         }
@@ -73,14 +73,7 @@ namespace ArrayMatter
             return copy;
 
         }
-        //Displays the content of an array
-        static void display(int[] numbers)
-        {
-            for(int i=0; i<numbers.Length; i++)
-            {
-                Console.Write(numbers[i] + " ");
-            }
-        }
+      
         
 
         //Returns the minimum and the location of the minimum number
@@ -137,14 +130,7 @@ namespace ArrayMatter
         }
 
 
-        //Print the content of a list
-        static void printList(List<int> mylist)
-        {
-            for(int i=0; i<mylist.Count; i++)
-            {
-                Console.Write(mylist[i] + " ");
-            }
-        }
+      
 
 
         //Selection sort algorithm
