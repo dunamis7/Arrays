@@ -15,34 +15,41 @@ namespace ArrayMatter
             numbers = Initializer(numbers);
 
             Displays.displayArray(numbers);
-            Console.WriteLine(" "); 
+            Console.WriteLine(" ");
 
             int[] abtmin = minNum(numbers);
-            Console.WriteLine("Minimum nuber is " + abtmin[0] + " and it is at index " + abtmin[1]);
+            Console.WriteLine("Minimum number is " + abtmin[0] + " and it is at index " + abtmin[1]);
 
 
 
-            //List<int>  myprimelist = findPrimenumbers(numbers);
+            List<int> primeNumbers = new List<int>();
+            primeNumbers = findPrimenumbers(numbers);
 
-            //Console.WriteLine("Prime numbers in the array is :");
-            //display(myprimelist);
-
-            Boolean prime = isprime(5);
-
-            Console.WriteLine(prime);
-
-
-            List<int> list = new List<int>();
-           list = findPrimenumbers(numbers);
-
-            Displays.printList(list);
+            Console.WriteLine("Prime numbers in array are ");
+            Displays.printList(primeNumbers);
 
             Console.WriteLine(" ");
 
 
-            int[] mysort = selectionSort(numbers);
+            int[] mysort = Statistics.selectionSort(numbers);
 
+            Console.WriteLine("Sorted array");
             Displays.displayArray(mysort);
+
+            Console.WriteLine(" ");  
+            
+            int[] numbers2 = { 1,3,2,3,1,4,9,4, 2,1,3,1 };
+            int mode = Statistics.Mode(numbers2);
+            double mean = Statistics.Mean(numbers2);
+            double median= Statistics.Median(numbers2);
+
+            Console.WriteLine("New array");
+            Displays.displayArray(numbers2);
+
+            Console.WriteLine(" ");    
+            Console.WriteLine($"Mode of new array   {mode}");
+            Console.WriteLine($"Median of new array   {median}");
+            Console.WriteLine($"Mean of new array   {mean}");
 
             Console.Read();
         }
@@ -128,38 +135,6 @@ namespace ArrayMatter
 
             return primeNumbers;
         }
-
-
-      
-
-
-        //Selection sort algorithm
-
-        static int[] selectionSort(int[] numbers )
-        {
-            int[] myclone = copyArray(numbers);
-
-            for(int i=0; i<myclone.Length-1; i++)
-                
-            {
-                int min = i;
-                for (int j=i+1; j<myclone.Length; j++)
-                {
-                    if (myclone[j] < myclone[min])
-                    {
-                        min = j;
-                    }
-                }
-                //Swapping
-               int temp = myclone[min];
-                myclone[min] = myclone[i];
-                myclone[i] = temp;
-
-            }
-            return myclone;
-        }
-
-
 
     }
 }
